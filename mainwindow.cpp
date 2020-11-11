@@ -2,13 +2,33 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QDebug>
-#include <QSound>
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+
 {
+
     ui->setupUi(this);
-    ui->stackedWidget->setCurrentIndex(0);// initialiser le premier widget
+ui->stackedWidget_2->setCurrentIndex(0); // intialiser le deuxieme widget(fournisseur)
+    ui->stackedWidget->setCurrentIndex(0);// initialiser le premier widget(materiaux)
+    //controle de saisie pour les nombres
+ui->lineEdit_20->setValidator(new QIntValidator(0,99999,this));//id_fournisseur
+ui->lineEdit_23->setValidator(new QIntValidator(0,99999,this));//ref_materiel
+ui->lineEdit_22->setValidator(new QIntValidator(0,99999999,this));//numero tel(8 chiffres)
+ui->lineEdit_30->setValidator(new QIntValidator(0,99999,this));//solde
+ui->lineEdit_29->setValidator(new QIntValidator(0,99999,this));//remise materiel
+ui->lineEdit_27->setValidator(new QIntValidator(0,99999,this));//id_fournisseur
+ui->lineEdit_28->setValidator(new QIntValidator(0,99999,this));//ref_materiel
+ui->lineEdit_15->setValidator(new QIntValidator(0,99999,this));//id
+ui->lineEdit_17->setValidator(new QDoubleValidator(-99.0,99.0,4,this));//prix
+ui->lineEdit_19->setValidator(new QIntValidator(0,99999,this));//quantite
+ui->lineEdit_10->setValidator(new QIntValidator(0,99999,this));//quantite
+ui->lineEdit_11->setValidator(new QIntValidator(0,99999,this));//quantite_dispo
+ui->lineEdit_13->setValidator(new  QDoubleValidator(-99.0,99.0,4,this));//prix
+ui->lineEdit_14->setValidator(new QIntValidator(0,99999,this));//id
+ui->lineEdit_19->setValidator(new QIntValidator(0,9999,this));//quantite
     //animation pour logo fusesmart
     int w=ui->logo->width();
     int h=ui->logo->height();
@@ -29,11 +49,11 @@ MainWindow::MainWindow(QWidget *parent)
  //animation pour logo sofap
 
     int w1=ui->label_7->width();
-    int h2=ui->label_7->height();
+    int h1=ui->label_7->height();
     animation1 = new QPropertyAnimation(ui->label_7,"geometry");
     animation1->setDuration(10000);
     animation1->setStartValue(ui->label_7->geometry());
-    animation1->setEndValue(QRect(500,200,w1,h2));
+    animation1->setEndValue(QRect(500,200,w1,h1));
     QEasingCurve curve2;
     curve2.setType(QEasingCurve::OutBounce);
     animation1->setEasingCurve(curve2);
@@ -42,6 +62,25 @@ MainWindow::MainWindow(QWidget *parent)
     animation1->setLoopCount(-1);
 
       animation1->start();
+
+//animation logo sofap dans le tab fournisseur
+
+      int w2=ui->label_36->width();
+      int h2=ui->label_36->height();
+      animation2 = new QPropertyAnimation(ui->label_36,"geometry");
+      animation2->setDuration(10000);
+      animation2->setStartValue(ui->label_36->geometry());
+      animation2->setEndValue(QRect(500,400,w2,h2));
+    /*  QEasingCurve curve3;
+      curve3.setType(QEasingCurve::OutBounce);
+      animation1->setEasingCurve(curve3);
+      curve3.setOvershoot(1.30);
+      curve3.setPeriod(0.50);*/
+      animation2->setLoopCount(-1);
+
+        animation2->start();
+
+
 }
 
 MainWindow::~MainWindow()
@@ -95,6 +134,8 @@ void MainWindow::on_pushButton_3_clicked() // quitter l'application
     }else{
         qDebug()<<"no is clicked";
     }
+
+
 
 
 }
@@ -170,4 +211,47 @@ void MainWindow::on_pushButton_14_clicked() //boutton undo supprimer
 {
 
 ui->lineEdit_14->setText("");
+}
+
+void MainWindow::on_pushButton_19_clicked()
+{
+     ui->stackedWidget_2->setCurrentIndex(1);
+}
+
+void MainWindow::on_pushButton_21_clicked() // retour (ajouter fournisseur)
+{
+    ui->stackedWidget_2->setCurrentIndex(0);
+}
+
+void MainWindow::on_pushButton_20_clicked() //boutton afficher fournisseur
+{
+     ui->stackedWidget_2->setCurrentIndex(2);
+}
+
+void MainWindow::on_quitter_3_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(0);//retour aprés afficher fournisseur
+}
+
+void MainWindow::on_modifier_3_clicked() // boutton modifier fournisseur
+{
+    ui->stackedWidget_2->setCurrentIndex(3);
+}
+
+void MainWindow::on_pushButton_25_clicked() //boutton retour (widget modifier fournisseur)
+{
+    ui->stackedWidget_2->setCurrentIndex(2);
+}
+
+
+void MainWindow::on_supprimer_3_clicked() // boutton supprimer (affichage fournisseur)
+{
+
+    ui->stackedWidget_2->setCurrentIndex(4);
+}
+
+
+void MainWindow::on_pushButton_28_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(2);
 }

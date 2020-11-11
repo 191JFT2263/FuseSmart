@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include<QPropertyAnimation>
 #include <QString>
-
+#include <QDoubleValidator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,6 +17,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+
 
 
 private slots:
@@ -50,9 +52,27 @@ private slots:
 
     void on_pushButton_14_clicked();
 
+    void on_pushButton_19_clicked();
+
+    void on_pushButton_21_clicked();
+
+    void on_pushButton_20_clicked();
+
+    void on_quitter_3_clicked();
+
+    void on_modifier_3_clicked();
+
+    void on_pushButton_25_clicked();
+
+    void on_supprimer_3_clicked();
+
+    void on_pushButton_28_clicked();
+
 private:
     Ui::MainWindow *ui;
       QPropertyAnimation *animation;
       QPropertyAnimation *animation1;
+      QPropertyAnimation *animation2;
+
 };
 #endif // MAINWINDOW_H
