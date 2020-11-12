@@ -3,13 +3,21 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
-
+#include <QDebug>
 
 class connection
 {
+private:
+    QSqlDatabase db;
+    int userdb;
+    QString passworddb;
+
 public:
     connection();
-    bool createconnect();
+    bool ouvrirconnexion();
+    void fermerconnexion();
+    void ecrire();
+
 };
 
 #endif // CONNECTION_H

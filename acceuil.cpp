@@ -1,18 +1,18 @@
 #include "acceuil.h"
-#include "ui_acceuil.h"
-#include <QMainWindow>
-#include <QApplication>
-#include "mainwindow.h"
-#include <QMessageBox>
-#include "connection.h"
-#include <QApplication>
-acceuil::acceuil(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::acceuil)
-{   musicConect->setMedia(QUrl("C:/Users/Nasreddine/Documents/FuseSmart/conect.mp3"));
+
+
+acceuil::acceuil(QWidget *parent) : QDialog(parent), ui(new Ui::acceuil)
+{
+
+    musicClic->setMedia(QUrl("C:/Users/Nasreddine/Documents/FuseSmart/clic.mp3"));
     ui->setupUi(this);
-    QPixmap decnx("C:/Users/Nasreddine/Documents/FuseSmart/decnx2.png");
-    ui->decnx->setPixmap(decnx);
+
+
+    musicClic->setVolume(10);
+    QPixmap addemp("C:/Users/Nasreddine/Documents/FuseSmart/AjouterEmployé.png"),
+            addconge("C:/Users/Nasreddine/Documents/FuseSmart/Ajoutercongé.png");
+    ui->AjouterEmploye->setPixmap(addemp);ui->AjouterConge->setPixmap(addconge);
+
 }
 
 acceuil::~acceuil()
@@ -21,17 +21,80 @@ acceuil::~acceuil()
 }
 
 void acceuil::on_tabWidget_currentChanged()
-{   musicConect->stop();
-    musicConect->play();
+{   musicClic->stop();
+    musicClic->play();
 }
 
-void acceuil::on_decnx_linkActivated()
-{
-
-}
 
 void acceuil::on_pushButton_clicked()
 {
+    musicClic->stop();
+        musicClic->play();
+
+    MainWindow m;
+    m.show();
 
 
+}
+
+
+
+void acceuil::on_pushButton_2_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
+}
+
+void acceuil::on_pushButton_3_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
+}
+
+void acceuil::on_ajouter_conge_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
+}
+
+void acceuil::on_afficher_conge_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
+}
+
+void acceuil::on_pushButton_10_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
+}
+
+void acceuil::on_pushButton_9_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
+}
+
+void acceuil::on_pushButton_5_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
+}
+
+void acceuil::on_pushButton_8_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
+}
+
+void acceuil::on_pushButton_7_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
+}
+
+void acceuil::on_pushButton_6_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
 }
